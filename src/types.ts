@@ -6,14 +6,14 @@ type Task = {
 
 export interface PostTasks {
   url: "/v1/tasks";
-  params: { name: string };
+  data: { name: string };
   response: Task;
   method: "POST";
 }
 
 export interface GetTasks {
   url: "/v1/tasks";
-  params: undefined;
+  data: undefined;
   response: Task[];
   method: "GET";
 }
@@ -22,7 +22,7 @@ export type Endpoint = PostTasks | GetTasks;
 
 export interface ApiParams<T extends Endpoint> {
   url: T["url"];
-  data: T["params"];
+  data: T["data"];
   method: T["method"];
 }
 
